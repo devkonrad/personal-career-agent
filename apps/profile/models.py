@@ -228,6 +228,15 @@ class Project(SourcedModel):
         on_delete=models.CASCADE,
         related_name="projects",
     )
+
+    experience = models.ForeignKey(
+        Experience,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="client_projects",
+    )
+
     name = models.CharField(max_length=150)
     role = models.CharField(max_length=150, blank=True)
     description = models.TextField()
